@@ -56,8 +56,13 @@ func upload(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func faviconHandler(w http.ResponseWriter, r *http.Request)  {
+	http.ServeFile(w, r, "./favicon.ico")
+}
+
 func main() {
 	http.HandleFunc("/", upload)
+	http.HandleFunc("/favicon.ico", faviconHandler)
 	err := http.ListenAndServe(":3000", nil)
 	if err != nil {
 		log.Fatal("ListenAndServe Error: ", err)
