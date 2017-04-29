@@ -57,7 +57,7 @@ func upload(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/upload/", upload)
+	http.HandleFunc("/", upload)
 	err := http.ListenAndServe(":3000", nil)
 	if err != nil {
 		log.Fatal("ListenAndServe Error: ", err)
