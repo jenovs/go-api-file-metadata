@@ -1,4 +1,4 @@
-Link to the live version: [https://glacial-badlands-49222.herokuapp.com/]()
+Link to the live version: [https://glacial-badlands-49222.herokuapp.com/](https://glacial-badlands-49222.herokuapp.com/)
 
 # File Metadata Microservice
 
