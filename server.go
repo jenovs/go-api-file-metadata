@@ -29,6 +29,7 @@ func upload(w http.ResponseWriter, r *http.Request) {
 		}
 
 		defer file.Close()
+		os.Mkdir("test", os.ModePerm)
 		f, err := os.Create("./test/" + handler.Filename)
 
 		if err != nil {
@@ -53,6 +54,7 @@ func upload(w http.ResponseWriter, r *http.Request) {
 
 		f.Close()
 		os.Remove("./test/" + handler.Filename)
+		os.Remove("test")
 	}
 }
 
@@ -64,6 +66,7 @@ func main() {
 	http.HandleFunc("/", upload)
 	http.HandleFunc("/favicon.ico", faviconHandler)
 	err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
+	// err := http.ListenAndServe(":3000", nil)
 	if err != nil {
 		log.Fatal("ListenAndServe Error: ", err)
 	}
